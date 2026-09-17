@@ -41,7 +41,7 @@ O *corpus de texto* será obtido a partir do [*Project Gutenberg*](https://www.g
 Esse *script* é independente da linguagem de programação escolhida para o desenvolvimento do restante do trabalho, pois apenas prepara os arquivos de texto que serão usados como entrada. Basta executá-lo uma vez em Python para cada um dos três livros antes de iniciar a implementação, mesmo que esta seja feita em uma linguagem de programação diferente (como Java ou C++):
 
 ```bash
-python corpus/download_corpus.py <book_id> <output_path>
+python3 corpus/download_corpus.py <book_id> <output_path>
 ```
 
 em que `book_id` é o ID do livro no *Project Gutenberg* e `output_path` é o caminho do arquivo no qual o texto será salvo. Preferencialmente, utilize um arquivo de texto simples (`.txt`) como saída, **um para cada livro**.

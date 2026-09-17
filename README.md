@@ -46,6 +46,8 @@ python3 corpus/download_corpus.py <book_id> <output_path>
 
 em que `book_id` é o ID do livro no *Project Gutenberg* e `output_path` é o caminho do arquivo no qual o texto será salvo. Preferencialmente, utilize um arquivo de texto simples (`.txt`) como saída, **um para cada livro**.
 
+O *script* já remove o cabeçalho e o rodapé padrão do *Project Gutenberg* (licença, metadados), mantendo apenas o texto do livro. As decisões de normalização (maiúsculas/minúsculas, pontuação, etc.) devem ser aplicadas a esse texto já limpo, não ao arquivo original bruto.
+
 Os três *corpora* a serem utilizados são fixos para garantir comparabilidade entre os resultados:
 
 | Papel no experimento | Título                             | ID no Project Gutenberg | Tamanho aproximado  |

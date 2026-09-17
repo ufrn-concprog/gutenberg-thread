@@ -56,7 +56,7 @@ Os três *corpora* a serem utilizados são fixos para garantir comparabilidade e
 
 Os três tamanhos de livros foram escolhidos propositalmente de modo que cada um seja aproximadamente 4–5 vezes maior que o anterior (crescimento aproximadamente exponencial, não linear), o que permite observar tendências com mais clareza do que se os tamanhos fossem muito próximos entre si. **Não é permitido substituir nenhum desses três livros por outros textos.**
 
-## Implementação
+### Implementação
 
 O programa a ser implementado deve contemplar:
 
@@ -81,7 +81,7 @@ sendo $S$ o *speed-up*, $T_s$ o tempo médio despendido pela versão sequencial 
 
 **Observação:** É bem sabido que o início da execução de um programa implementado na linguagem de programação Java é afetado de forma relativamente prejudicial pelo carregamento de classes na memória, realizado pela máquina virtual Java (JVM), antes da execução propriamente dita do programa, o que se chama *warm-up*. Com isso, apenas após esse processo de carregamento ter sido concluído é que se pode mensurar de forma confiável o desempenho do programa. Caso os programas objeto deste trabalho tenham sido implementados nessa linguagem de programação, a estratégia mais simples para uma medição confiável (uma vez que os programas em questão não possuem requisitos estritos de latência) é realizar algumas execuções do programa e desconsiderá-las, justamente porque os tempos de execução observados são certamente influenciados pelo tempo de *warm-up* da JVM. O relato deve informar quantas execuções foram descartadas devido ao *warm-up*.
 
-## Relato
+### Relato
 
 Uma vez realizadas as tarefas de implementação e de experimentação, deverá ser elaborado um relatório contendo, no mínimo, as seguintes seções:
 
@@ -104,7 +104,7 @@ O sistema de controle de versões [Git](https://git-scm.com) e o serviço de hos
 
 A fim de garantir a boa manutenção do repositório, deve-se ainda configurar corretamente o arquivo `.gitignore` para desconsiderar arquivos que não devam ser versionados, como os executáveis gerados pela compilação do código-fonte. Também não é necessário versionar os arquivos de saída gerados pela obtenção do *corpus*.
 
-A entrega deste trabalho deverá ser realizada até as **23:59 do dia 30 de setembro de 2026** no respectivo repositório Git da equipe. O relatório elaborado, preferencialmente em formato *Adobe Portable Document Format* (PDF), deverá ser enviado através da opção *Tarefas* da Turma Virtual do SIGAA, juntamente com o endereço do repositório no campo *Comentários*. **Um único membro da equipe deve realizar esse envio**, e não serão aceitos envios por outros meios ou em repositórios que não os descritos nesta especificação.
+A entrega deste trabalho deverá ser realizada até as **23:59 do dia 30 de setembro de 2026** no respectivo repositório Git da equipe. O relatório, preferencialmente em formato *Adobe Portable Document Format* (PDF), deverá ser enviado por meio da opção *Tarefas* da Turma Virtual do SIGAA, juntamente com o endereço do repositório, no campo *Comentários*. **Um único membro da equipe deve realizar esse envio**, e não serão aceitos envios por outros meios ou em repositórios que não os descritos nesta especificação.
 
 ## Avaliação
 

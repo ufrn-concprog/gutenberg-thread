@@ -1,4 +1,4 @@
-# Trabalho Prático: Contagem de Frequência de Palavras
+# Trabalho Prático: Projeto Gutenberg
 
 <sub>Última atualização: 17/09/2026</sub>
 
@@ -63,41 +63,41 @@ O programa a ser implementado deve contemplar:
 1. uma **versão sequencial**, sendo esta a implementação de referência, sem uso de *threads*, para servir de *baseline* nas comparações.
 2. uma **versão com threads**, com o número de *threads* configurável via parâmetro de linha de comando ou por uma constante facilmente ajustável no código; esse valor não deve ser fixado no código de forma que exija recompilação para testar valores diferentes.
 
+O programa poderá ser implementado utilizando facilidades providas pelas linguagens de programação C/C++, Java ou Python. Outra linguagem de programação diferente dessas três poderá ser utilizada contanto a proposta seja previamente validada com o docente. O desenvolvimento da solução deve de antemão visar pela busca de desenvolvimento de *software* de qualidade, isto é, funcionando correta e eficientemente, exaustivamente testado, bem documentado e com tratamento adequado de eventuais exceções.
+
 ### Experimentação
 
 A tarefa de experimentação consiste em realizar sucessivas execuções do programa implementado, considerando os três textos como entrada e exatamente as seguintes quantidades de *threads*: **1, 2, 4, 8 e 16**. O valor 1 corresponde à execução sequencial, mantendo a mesma divisão em blocos, mas com uma única thread processando todo o texto. Essa variação possibilitará explorar o que acontece quando um grande número de *threads* é criado e a capacidade do sistema operacional para lidar com elas de forma eficiente. 
 
 Caso o valor 16 para o número de *threads* exceda o número de núcleos lógicos disponíveis na máquina utilizada na experimentação, é provável que o desempenho não continue melhorando (podendo até piorar) a partir de algum ponto entre os valores testados. Portanto, deve ser informado no relato o número de núcleos lógicos da máquina utilizada na experimentação, para contextualizar em qual dos valores testados (1, 2, 4, 8 ou 16) esse comportamento começou a ocorrer. Além disso, caso se observe alguma dificuldade na execução decorrente do número de *threads* ou do volume do *corpus* analisado, em razão dos limites impostos pelo sistema operacional, isso deverá ser devidamente registrado no relato, uma vez que se trata dos limites práticos da programação concorrente.
 
-A versão sequencial do programa também deverá ser submetida à mesma carga de trabalho (incluindo a mensuração do tempo de execução) para possibilitar uma análise comparativa em relação à versão sequencial. Do ponto de vista quantitativo, essa análise pode ser feita determinando o ganho de desempenho (*speed-up*) eventualmente obtido com a versão concorrente. Esse cálculo pode ser realizado através da seguinte equação:
+No intuito de tornar os experimentos representativos do ponto de vista estatístico, será necessário executar cada uma das versões em um total de **10 vezes** para cada cenário, o que totaliza 5 valores de *threads* $\times$ 3 tamanhos de *corpus* $\times$ 10 execuções = 150 execuções. O tempo de cada grupo de 10 execuções deverá ser registrado a fim de calcular os valores máximo, mínimo, médio e de desvio padrão. É importante utilizar uma unidade de medida em um nível de granularidade que torne possível a observação dos valores. Por exemplo, a utilização de segundos (ou mesmo milissegundos, dependendo do caso) como unidade de medida pode resultar em valores significativamente pequenos que sejam expressos praticamente como zero, o que não é desejável para o propósito da análise.
+
+Especificamente com relação à análise comparativa entre as versões sequencial e concorrente, é necessário ainda determinar o ganho de desempenho (*speed-up*) eventualmente obtido com a versão concorrente. Esse cálculo pode ser realizado através da seguinte equação:
 
 $$ S = \frac{T_s}{T_c} $$
 
-sendo $S$ o *speed-up*, $T_s$ o tempo médio despendido pela versão sequencial e $T_c$ o tempo médio despendido pela versão concorrente. Caso o valor do *speed-up* seja superior a 1, tem-se que a versão concorrente é de fato melhor em termos de desempenho do que a sequencial.
+sendo $S$ o *speed-up*, $T_s$ o tempo médio despendido pela versão sequencial e $T_c$ o tempo médio despendido pela versão concorrente. Caso o valor do *speed-up* seja superior a 1, tem-se que a versão concorrente é, em média, de fato melhor em termos de desempenho do que a sequencial.
 
 **Observação:** É bem sabido que o início da execução de um programa implementado na linguagem de programação Java é afetado de forma relativamente prejudicial pelo carregamento de classes na memória realizado pela máquina virtual Java (JVM) antes da execução propriamente dita do programa, o que se chama *warm-up*. Com isso, apenas após esse processo de carregamento ter sido concluído é que se pode mensurar de forma confiável o desempenho do programa. Caso os programas objeto deste trabalho tenham sido implementados nessa linguagem de programação, a estratégia mais simples para uma medição confiável (uma vez que os programas em questão não possuem requisitos estritos de latência) é realizar algumas execuções do programa e as desconsiderar, justamente pelo fato de os tempos de execução observados serem certamente influenciados pelo tempo de *warm-up* da JVM.
 
-- **10 execuções repetidas por configuração**, reportando média e desvio padrão do tempo de execução — seguindo a mesma metodologia utilizada nos benchmarks apresentados em aula.
+## Relato
 
-Isso totaliza 5 valores de threads × 3 tamanhos de corpus × 10 execuções = 150 execuções cronometradas, além da linha de base sequencial verdadeira.
+Uma vez realizadas as tarefas de implementação e de experimentação, deverá ser elaborado um relatório contendo, no mínimo, as seguintes seções:
 
-
-
-**Sobre aquecimento (warm-up):** para duplas que optarem por **Java**, é necessário considerar os efeitos de compilação JIT (Just-In-Time) sobre o tempo medido — recomenda-se descartar algumas execuções iniciais antes de começar a coleta, documentando quantas execuções foram descartadas e por quê. Para **C++** e **Python**, esse cuidado não é necessário.
-
-## Entregáveis
+1. **Introdução** — o problema escolhido (contagem de frequência de palavras) e por que ele é adequado à paralelização sem sincronização.
+2.  **Projeto da solução** — como o texto foi dividido entre as threads, decisões de implementação, **definição de "palavra" adotada e sua justificativa**, e por que nenhum mecanismo de sincronização foi necessário.
+3.  **Metodologia experimental** — hardware utilizado (processador, número de núcleos), linguagem escolhida, tamanho exato (em número de palavras e/ou caracteres) de cada um dos três corpora especificados após a normalização adotada, valores de N testados (1, 2, 4, 8 e 16), número de execuções por configuração (10), e, no caso de implementações em Java, quantas execuções iniciais foram descartadas para aquecimento e a justificativa para esse número.
+4. **Resultados** — tabela(s) e/ou gráfico(s) de tempo médio e desvio padrão por configuração.
+5. **Análise e discussão** — o speedup obtido corresponde ao esperado? A partir de que ponto o ganho de desempenho deixa de compensar (ou até piora) ao aumentar o número de threads? Esse ponto de saturação muda conforme o tamanho da entrada aumenta (pequena → média → grande)? Existe uma tendência clara, ou o comportamento é irregular entre os três tamanhos?
+6. **Conclusão** — principais aprendizados sobre concorrência com threads a partir do experimento.
 
 1. **Repositório da dupla no Classroom 50**, contendo:
    - Código-fonte da versão sequencial e da versão com threads.
    - Um `README.md` explicando como compilar/executar o código e como reproduzir os experimentos (incluindo como obter o corpus).
 2. **Relatório curto, em português**, com a seguinte estrutura:
 
-   1. **Introdução** — o problema escolhido (contagem de frequência de palavras) e por que ele é adequado à paralelização sem sincronização.
-   2. **Projeto da solução** — como o texto foi dividido entre as threads, decisões de implementação, **definição de "palavra" adotada e sua justificativa**, e por que nenhum mecanismo de sincronização foi necessário.
-   3. **Metodologia experimental** — hardware utilizado (processador, número de núcleos), linguagem escolhida, tamanho exato (em número de palavras e/ou caracteres) de cada um dos três corpora especificados após a normalização adotada, valores de N testados (1, 2, 4, 8 e 16), número de execuções por configuração (10), e, no caso de implementações em Java, quantas execuções iniciais foram descartadas para aquecimento e a justificativa para esse número.
-   4. **Resultados** — tabela(s) e/ou gráfico(s) de tempo médio e desvio padrão por configuração.
-   5. **Análise e discussão** — o speedup obtido corresponde ao esperado? A partir de que ponto o ganho de desempenho deixa de compensar (ou até piora) ao aumentar o número de threads? Esse ponto de saturação muda conforme o tamanho da entrada aumenta (pequena → média → grande)? Existe uma tendência clara, ou o comportamento é irregular entre os três tamanhos?
-   6. **Conclusão** — principais aprendizados sobre concorrência com threads a partir do experimento.
+   
 
 ## Avaliação (nota máxima: 4,0)
 

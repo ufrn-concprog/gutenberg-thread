@@ -50,9 +50,9 @@ Os três *corpora* a serem utilizados são fixos para garantir comparabilidade e
 
 | Papel no experimento | Título                             | ID no Project Gutenberg | Tamanho aproximado  |
 | :------------------- | :--------------------------------- | :---------------------- | :------------------ |
-| Entrada pequena      | *Alice's Adventures in Wonderland* | `11`                    | ~27 mil palavras    |
-| Entrada média        | *Pride and Prejudice*              | `1342`                  | ~122 mil palavras   |
-| Entrada grande       | *War and Peace*                    | `2600`                  | ~560 mil palavras   |
+| Entrada pequena      | *Alice's Adventures in Wonderland* | 11                      | ~27 mil palavras    |
+| Entrada média        | *Pride and Prejudice*              | 1342                    | ~122 mil palavras   |
+| Entrada grande       | *War and Peace*                    | 2600                    | ~560 mil palavras   |
 
 Os três tamanhos de livros foram escolhidos propositalmente de modo que cada um seja aproximadamente 4–5 vezes maior que o anterior (crescimento aproximadamente exponencial, não linear), o que permite observar tendências com mais clareza do que se os tamanhos fossem muito próximos entre si. **Não é permitido substituir nenhum desses três livros por outros textos.**
 
